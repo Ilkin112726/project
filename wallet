@@ -1,0 +1,37 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { formatCurrency, CURRENCIES } from '@/lib/currency';
+import { Wifi } from 'lucide-react';
+
+const themes = {
+  gold: 'linear-gradient(135deg, #D4A373 0%, #c4956a 30%, #b8845a 60%, #a47550 100%)',
+  dark: 'linear-gradient(135deg, #111827 0%, #1f2937 50%, #374151 100%)',
+  gradient: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%)',
+  platinum: 'linear-gradient(135deg, #9ca3af 0%, #d1d5db 40%, #e5e7eb 60%, #9ca3af 100%)',
+};
+
+export default function VirtualCard({ wallet, index = 0 }) {
+  const theme = themes[wallet.card_theme] || themes.dark;
+  const isLight = wallet.card_theme === 'platinum';
+  const textClass = isLight ? 'text-gray-800' : 'text-white';
+  const subClass = isLight ? 'text-gray-600' : 'text-white/60';
+
+  const cardNum = wallet.card_number || '•••• •••• •••• ' + String(4000 + index).slice(-4);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      whileHover={{ y: -4, scale: 1.01 }}
+      className="relative overflow-hidden rounded-2xl p-5 sm:p-6 aspect-[1.7/1] cursor-pointer"
+      style={{ background: theme }}
+    >
+      {/* Decorative circles */}
+      <div className="absolute top-0 right-0 w-48 h-48 rounded-full opacity-10 bg-white transform translate-x-16 -translate-y-16" />
+
+      <div className="relative z-10 flex flex-col justify-between h-full">
+        <div className="flex items-center justify-between">
+          <span className={`text-xs font-medium ${subClass}`}>{wallet.name}</span>
+          <Wifi className={`w-4 h-4 ${subClass} rotate-90`} />
+        </div>
