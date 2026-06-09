@@ -1,0 +1,43 @@
+{
+  "name": "SavingsGoal",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "target_amount": {
+      "type": "number"
+    },
+    "current_amount": {
+      "type": "number",
+      "default": 0
+    },
+    "currency": {
+      "type": "string",
+      "enum": [
+        "AZN",
+        "USD",
+        "EUR",
+        "RUB",
+        "TRY",
+        "GBP",
+        "CHF"
+      ],
+      "default": "AZN"
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "target_amount"
+  ]
+}
