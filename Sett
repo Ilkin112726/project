@@ -1,0 +1,37 @@
+{
+  "name": "UserSettings",
+  "type": "object",
+  "properties": {
+    "primary_currency": {
+      "type": "string",
+      "enum": [
+        "AZN",
+        "USD",
+        "EUR",
+        "RUB",
+        "TRY",
+        "GBP",
+        "CHF"
+      ],
+      "default": "AZN"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "en",
+        "az",
+        "ru"
+      ],
+      "default": "en"
+    },
+    "theme": {
+      "type": "string",
+      "enum": [
+        "dark",
+        "light"
+      ],
+      "default": "dark"
+    }
+  },
+  "required": []
+}
