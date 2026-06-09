@@ -1,0 +1,43 @@
+{
+  "name": "Transaction",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Transaction title"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Amount in primary currency"
+    },
+    "currency": {
+      "type": "string",
+      "enum": [
+        "AZN",
+        "USD",
+        "EUR",
+        "RUB",
+        "TRY",
+        "GBP",
+        "CHF"
+      ],
+      "default": "AZN"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "income",
+        "expense",
+        "transfer"
+      ],
+      "default": "expense"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "food",
+        "transport",
+        "shopping",
+        "entertainment",
+        "bills",
+ 
